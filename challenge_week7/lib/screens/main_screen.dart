@@ -8,6 +8,7 @@ import 'cart_page.dart';
 import 'home_page.dart';
 import 'add_product.dart';
 import 'edit_product.dart';
+import 'post_page.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -186,6 +187,7 @@ class _MainScreenState extends State<MainScreen> {
         onRemoveFromCart: _removeFromCart,
         onClearCart: _clearCart,
       ),
+      const PostPage(),
     ];
   }
 
@@ -250,6 +252,12 @@ class _MainScreenState extends State<MainScreen> {
                   badgeCount: totalCartQuantity,
                   isSelected: _selectedIndex == 1,
                 ),
+                _buildNavItem(
+                  index: 2, 
+                  icon: Icons.cloud_sync_rounded, 
+                  label: "API Post", 
+                  isSelected: _selectedIndex == 2,
+                )
               ],
             ),
           ),
@@ -271,7 +279,7 @@ class _MainScreenState extends State<MainScreen> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 260),
         curve: Curves.easeOutCubic,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
           gradient: isSelected
